@@ -7,7 +7,7 @@
 
 defined('_JEXEC') or die();
 
-class files_AkeebastrapperInstallerScript
+class files_strapperInstallerScript
 {
 	/**
 	 * The minimum PHP version required to install this extension
