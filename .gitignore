@@ -1,0 +1,13 @@
+/.idea
+
+/build/build.properties
+/build/bin
+/build/buildlang
+/build/phingext
+/build/tools
+
+/release.json
+
+/strapper/files_strapper.xml
+/strapper/version.txt
+/strapper/akeeba_strapper/version.php
