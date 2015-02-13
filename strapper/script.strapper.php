@@ -36,7 +36,7 @@ class files_strapperInstallerScript
 	 *
 	 * @var   string
 	 */
-	protected $fofLibrariesPath = 'fof3/fof30';
+	protected $fofLibrariesPath = 'fof30';
 
 	protected $fofDefine = 'FOF30_INCLUDED';
 
@@ -200,12 +200,11 @@ class files_strapperInstallerScript
 		/** @var JInstaller $grandpa */
 		$grandpa = $parent->getParent();
 
-		$src = $grandpa->getPath('source');
-		$source = $src . '/akeeba_strapper';
+		$source = $grandpa->getPath('source');
 
 		$target = JPATH_ROOT . '/media/akeeba_strapper';
 
-		if (!JFolder::exists($source))
+		if (!JFolder::exists($source . '/akeeba_strapper'))
 		{
 			// WTF? I can't find myself. I can't install anything.
 			return false;
