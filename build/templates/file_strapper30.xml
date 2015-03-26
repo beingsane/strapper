@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<extension type="file" version="3.2" method="upgrade">
+<extension type="file" version="3.3" method="upgrade">
     <!-- Generic Metadata -->
-    <name>AkeebaStrapper</name>
+    <name>file_strapper30</name>
     <author>Nicholas K. Dionysopoulos</author>
     <authorEmail>nicholas@dionysopoulos.me</authorEmail>
     <authorUrl>https://www.akeebabackup.com</authorUrl>
@@ -9,11 +9,11 @@
     <license>GNU GPL v2 or later</license>
     <version>##VERSION##</version>
     <creationDate>##DATE##</creationDate>
-    <description>Namespaced jQuery and Bootstrap for compatibility with non-Bootstrap templates.</description>
+    <description>Namespaced jQuery and Bootstrap for compatibility with non-Bootstrap templates. This is the FOF 3.0 version.</description>
 
     <!-- Fileset definition -->
     <fileset>
-        <files folder="strapper3" target="media/strapper3">
+        <files folder="strapper30" target="media/strapper30">
             <folder>css</folder>
             <folder>img</folder>
             <folder>js</folder>
@@ -22,7 +22,7 @@
             <filename>strapper.php</filename>
             <filename>version.php</filename>
         </files>
-		<files target="media/strapper3">
+		<files target="media/strapper30">
 			<filename>version.txt</filename>
 		</files>
     </fileset>

@@ -7,7 +7,7 @@
 
 defined('_JEXEC') or die();
 
-class files_strapperInstallerScript
+class file_strapperInstallerScript
 {
 	/**
 	 * The minimum PHP version required to install this extension
@@ -115,7 +115,7 @@ class files_strapperInstallerScript
 		// In case of an update, discovery etc I need to check if I am an update
 		if (($type != 'install') && !$this->amIAnUpdate($parent))
 		{
-			$msg = "<p>You have a newer version of Akeeba Strapper installed. If you want to downgrade please uninstall Akeeba Strapper and install the older version.</p>";
+			$msg = "<p>You have a newer version of Akeeba Strapper 3.0 installed. If you want to downgrade please uninstall Akeeba Strapper 3.0 and install the older version.</p>";
 
 			JLog::add($msg, JLog::WARNING, 'jerror');
 
@@ -154,7 +154,7 @@ class files_strapperInstallerScript
 		$dbInstaller->updateSchema();
 
 		// Add self to FOF 3.0 dependency list
-		$this->addDependency('fof30', 'files_akeebastrapper');
+		$this->addDependency('fof30', 'files_strapper30');
 
 		// Clear the FOF cache
 		$fakeController = \FOF30\Container\Container::getInstance('com_FOOBAR');
@@ -171,11 +171,11 @@ class files_strapperInstallerScript
 	public function uninstall(JInstallerAdapterFile $parent)
 	{
 		// Check dependencies on Strapper
-		$dependencyCount = count($this->getDependencies('strapper2'));
+		$dependencyCount = count($this->getDependencies('strapper30'));
 
 		if ($dependencyCount)
 		{
-			$msg = "<p>You have $dependencyCount extension(s) depending on Akeeba Strapper. The package cannot be uninstalled unless these extensions are uninstalled first.</p>";
+			$msg = "<p>You have $dependencyCount extension(s) depending on Akeeba Strapper 3.0. The package cannot be uninstalled unless these extensions are uninstalled first.</p>";
 
 			JLog::add($msg, JLog::WARNING, 'jerror');
 
@@ -183,7 +183,7 @@ class files_strapperInstallerScript
 		}
 
 		// Remove self from FOF 3.0 dependencies
-		$this->removeDependency('fof30', 'files_akeebastrapper');
+		$this->removeDependency('fof30', 'files_strapper30');
 	}
 
 
@@ -202,9 +202,9 @@ class files_strapperInstallerScript
 
 		$source = $grandpa->getPath('source');
 
-		$target = JPATH_ROOT . '/media/strapper3';
+		$target = JPATH_ROOT . '/media/strapper30';
 
-		if (!JFolder::exists($source . '/strapper3'))
+		if (!JFolder::exists($source . '/strapper30'))
 		{
 			// WTF? I can't find myself. I can't install anything.
 			return false;

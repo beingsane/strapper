@@ -67,8 +67,8 @@
 		<!-- Generate files_strapper.xml and version.php -->
 		<copy todir="${dirs.root}/strapper" overwrite="true">
 			<fileset dir="./templates">
-				<include name="files_strapper.xml" />
-				<include name="strapper3/version.php" />
+				<include name="file_strapper30.xml" />
+				<include name="version.php" />
 			</fileset>
 			<filterchain>
 				<replacetokens begintoken="##" endtoken="##">
@@ -89,7 +89,7 @@
 		</copy>
 
 		<!-- Create the package -->
-		<zipme basedir="${dirs.strapper}" prefix="strapper/" destfile="${dirs.release}/files_strapper-${version}.zip" includeemptydirs="true">
+		<zipme basedir="${dirs.strapper}" prefix="strapper/" destfile="${dirs.release}/file_strapper30-${version}.zip" includeemptydirs="true">
 			<fileset dir="${dirs.strapper}" id="strapper">
 				<include name="**" />
 			</fileset>

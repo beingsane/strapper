@@ -18,14 +18,14 @@ if (!defined('FOF30_INCLUDED'))
 	JLoader::import('fof3.fof30.include');
 }
 
-if (!@include_once (__DIR__ . '/version.php') && !defined('AKEEBASTRAPPER_VERSION'))
+if (!@include_once (__DIR__ . '/version.php') && !defined('AKEEBASTRAPPER30_VERSION'))
 {
-	define('AKEEBASTRAPPER_VERSION', 'dev');
-	define('AKEEBASTRAPPER_DATE', gmdate('Y-m-d'));
-	define('AKEEBASTRAPPER_MEDIATAG', md5(AKEEBASTRAPPER_VERSION . AKEEBASTRAPPER_DATE));
+	define('AKEEBASTRAPPER30_VERSION', 'dev');
+	define('AKEEBASTRAPPER30_DATE', gmdate('Y-m-d'));
+	define('AKEEBASTRAPPER30_MEDIATAG', md5(AKEEBASTRAPPER30_VERSION . AKEEBASTRAPPER30_DATE));
 }
 
-class AkeebaStrapper
+class AkeebaStrapper30
 {
 	/** @var bool True when jQuery is already included */
 	public static $_includedJQuery = false;
@@ -68,11 +68,11 @@ class AkeebaStrapper
 	/**
 	 * Gets the query tag.
 	 *
-	 * Uses AkeebaStrapper::$tag as the default tag for the extension's mediatag. If
+	 * Uses AkeebaStrapper30::$tag as the default tag for the extension's mediatag. If
 	 * $overrideTag is set then that tag is used in stead.
 	 *
 	 * @param    string $overrideTag      If defined this tag is used in stead of
-	 *                                    AkeebaStrapper::$tag
+	 *                                    AkeebaStrapper30::$tag
 	 *
 	 * @return    string    The extension's query tag (e.g. ?23f742d04111881faa36ea8bc6d31a59)
 	 *                    or an empty string if it's not set
@@ -139,7 +139,7 @@ class AkeebaStrapper
 		if (is_null($config))
 		{
 			// Load a configuration INI file which controls which files should be skipped
-			$iniFile = self::getFakeContainer()->template->parsePath('media://akeeba_strapper/strapper.ini', true);
+			$iniFile = self::getFakeContainer()->template->parsePath('media://strapper30/strapper.ini', true);
 
 			$config = parse_ini_file($iniFile);
 		}
@@ -190,13 +190,13 @@ class AkeebaStrapper
 
 		if ($jQueryLoad == 'full')
 		{
-			self::addJSfile('media://akeeba_strapper/js/akeebajq.js', AKEEBASTRAPPER_MEDIATAG);
-			self::addJSfile('media://akeeba_strapper/js/akjqmigrate.js', AKEEBASTRAPPER_MEDIATAG);
+			self::addJSfile('media://strapper30/js/akeebajq.js', AKEEBASTRAPPER30_MEDIATAG);
+			self::addJSfile('media://strapper30/js/akjqmigrate.js', AKEEBASTRAPPER30_MEDIATAG);
 
 			return;
 		}
 
-		self::addJSfile('media://akeeba_strapper/js/namespace.js', AKEEBASTRAPPER_MEDIATAG);
+		self::addJSfile('media://strapper30/js/namespace.js', AKEEBASTRAPPER30_MEDIATAG);
 	}
 
 	/**
@@ -245,27 +245,27 @@ class AkeebaStrapper
 
 		self::$_includedBootstrap = true;
 
-		$altCss = array('media://akeeba_strapper/css/strapper.j3.min.css');
+		$altCss = array('media://strapper30/css/strapper.j3.min.css');
 
 		if ($loadBootstrap == 'full')
 		{
-			array_unshift($altCss, 'media://akeeba_strapper/css/bootstrap.min.css');
+			array_unshift($altCss, 'media://strapper30/css/bootstrap.min.css');
 
-			$filename = self::getFakeContainer()->template->parsePath('media://akeeba_strapper/js/bootstrap.min.js', true);
+			$filename = self::getFakeContainer()->template->parsePath('media://strapper30/js/bootstrap.min.js', true);
 
 			if (@filesize($filename) > 5)
 			{
-				self::addJSfile('media://akeeba_strapper/js/bootstrap.min.js', AKEEBASTRAPPER_MEDIATAG);
+				self::addJSfile('media://strapper30/js/bootstrap.min.js', AKEEBASTRAPPER30_MEDIATAG);
 			}
 		}
 		elseif ($loadBootstrap != 'none')
 		{
-			array_unshift($altCss, 'media://akeeba_strapper/css/bootstrap.j32.min.css');
+			array_unshift($altCss, 'media://strapper30/css/bootstrap.j32.min.css');
 		}
 
 		foreach ($altCss as $css)
 		{
-			self::addCSSfile($css, AKEEBASTRAPPER_MEDIATAG);
+			self::addCSSfile($css, AKEEBASTRAPPER30_MEDIATAG);
 		}
 	}
 
@@ -273,7 +273,7 @@ class AkeebaStrapper
 	 * Adds an arbitrary Javascript file.
 	 *
 	 * @param $path           string    The path to the file, in the format media://path/to/file
-	 * @param $overrideTag    string    If defined this version tag overrides AkeebaStrapper::$tag
+	 * @param $overrideTag    string    If defined this version tag overrides AkeebaStrapper30::$tag
 	 */
 	public static function addJSfile($path, $overrideTag = null)
 	{
@@ -306,7 +306,7 @@ class AkeebaStrapper
 	 * Adds an arbitrary CSS file.
 	 *
 	 * @param $path           string    The path to the file, in the format media://path/to/file
-	 * @param $overrideTag    string    If defined this version tag overrides AkeebaStrapper::$tag
+	 * @param $overrideTag    string    If defined this version tag overrides AkeebaStrapper30::$tag
 	 */
 	public static function addCSSfile($path, $overrideTag = null)
 	{
@@ -325,7 +325,7 @@ class AkeebaStrapper
 	 *
 	 * @param $path           string The path to the file, in the format media://path/to/file
 	 * @param $altPaths       string|array The path to the alternate CSS files, in the format media://path/to/file
-	 * @param $overrideTag    string    If defined this version tag overrides AkeebaStrapper::$tag
+	 * @param $overrideTag    string    If defined this version tag overrides AkeebaStrapper30::$tag
 	 */
 	public static function addLESSfile($path, $altPaths = null, $overrideTag = null)
 	{
@@ -388,15 +388,15 @@ class AkeebaStrapper
  *
  * Peace.
  */
-function AkeebaStrapperLoader()
+function AkeebaStrapper30Loader()
 {
 	// If there are no script defs, just go to sleep
 	if (
-		empty(AkeebaStrapper::$scriptURLs) &&
-		empty(AkeebaStrapper::$scriptDefs) &&
-		empty(AkeebaStrapper::$cssDefs) &&
-		empty(AkeebaStrapper::$cssURLs) &&
-		empty(AkeebaStrapper::$lessURLs)
+		empty(AkeebaStrapper30::$scriptURLs) &&
+		empty(AkeebaStrapper30::$scriptDefs) &&
+		empty(AkeebaStrapper30::$cssDefs) &&
+		empty(AkeebaStrapper30::$cssURLs) &&
+		empty(AkeebaStrapper30::$lessURLs)
 	)
 	{
 		return;
@@ -404,14 +404,14 @@ function AkeebaStrapperLoader()
 
 	$myscripts = '';
 
-	$preload = AkeebaStrapper::needPreload();
+	$preload = AkeebaStrapper30::needPreload();
 
 	$buffer = JFactory::getApplication()->getBody();
 
 	// Include Javascript files
-	if (!empty(AkeebaStrapper::$scriptURLs))
+	if (!empty(AkeebaStrapper30::$scriptURLs))
 	{
-		foreach (AkeebaStrapper::$scriptURLs as $entry)
+		foreach (AkeebaStrapper30::$scriptURLs as $entry)
 		{
 			list($url, $tag) = $entry;
 
@@ -427,7 +427,7 @@ function AkeebaStrapperLoader()
 	}
 
 	// Include Javscript snippets
-	if (!empty(AkeebaStrapper::$scriptDefs))
+	if (!empty(AkeebaStrapper30::$scriptDefs))
 	{
 		if ($preload)
 		{
@@ -437,7 +437,7 @@ function AkeebaStrapperLoader()
 		{
 			$myscripts = '';
 		}
-		foreach (AkeebaStrapper::$scriptDefs as $def)
+		foreach (AkeebaStrapper30::$scriptDefs as $def)
 		{
 			$myscripts .= $def . "\n";
 		}
@@ -452,13 +452,13 @@ function AkeebaStrapperLoader()
 	}
 
 	// Include LESS files
-	if (!empty(AkeebaStrapper::$lessURLs))
+	if (!empty(AkeebaStrapper30::$lessURLs))
 	{
-		foreach (AkeebaStrapper::$lessURLs as $entry)
+		foreach (AkeebaStrapper30::$lessURLs as $entry)
 		{
 			list($lessFile, $altFiles, $tag) = $entry;
 
-			$url = AkeebaStrapper::getFakeContainer()->template->addLESS($lessFile, $altFiles, true);
+			$url = AkeebaStrapper30::getFakeContainer()->template->addLESS($lessFile, $altFiles, true);
 
 			if ($preload)
 			{
@@ -472,7 +472,7 @@ function AkeebaStrapperLoader()
 					{
 						foreach ($altFiles as $altFile)
 						{
-							$url = AkeebaStrapper::getFakeContainer()->template->parsePath($altFile);
+							$url = AkeebaStrapper30::getFakeContainer()->template->parsePath($altFile);
 							$myscripts .= '<link type="text/css" rel="stylesheet" href="' . $url . $tag . '" />' . "\n";
 						}
 					}
@@ -494,7 +494,7 @@ function AkeebaStrapperLoader()
 					{
 						foreach ($altFiles as $altFile)
 						{
-							$url = AkeebaStrapper::getFakeContainer()->template->parsePath($altFile);
+							$url = AkeebaStrapper30::getFakeContainer()->template->parsePath($altFile);
 							JFactory::getDocument()->addStyleSheet($url . $tag);
 						}
 					}
@@ -508,9 +508,9 @@ function AkeebaStrapperLoader()
 	}
 
 	// Include CSS files
-	if (!empty(AkeebaStrapper::$cssURLs))
+	if (!empty(AkeebaStrapper30::$cssURLs))
 	{
-		foreach (AkeebaStrapper::$cssURLs as $entry)
+		foreach (AkeebaStrapper30::$cssURLs as $entry)
 		{
 			list($url, $tag) = $entry;
 
@@ -526,10 +526,10 @@ function AkeebaStrapperLoader()
 	}
 
 	// Include style definitions
-	if (!empty(AkeebaStrapper::$cssDefs))
+	if (!empty(AkeebaStrapper30::$cssDefs))
 	{
 		$myscripts .= '<style type="text/css">' . "\n";
-		foreach (AkeebaStrapper::$cssDefs as $def)
+		foreach (AkeebaStrapper30::$cssDefs as $def)
 		{
 			if ($preload)
 			{
@@ -561,9 +561,9 @@ function AkeebaStrapperLoader()
  * Makes sure Akeeba Strapper's bootstrap[.min].js is only loaded when
  * bootstrap[.min].js has not yet been loaded.
  */
-function AkeebaStrapperOnAfterRender()
+function AkeebaStrapper30OnAfterRender()
 {
-	if (AkeebaStrapper::$_includedBootstrap)
+	if (AkeebaStrapper30::$_includedBootstrap)
 	{
 		$buffer = JFactory::getApplication()->getBody();
 
@@ -587,7 +587,7 @@ function AkeebaStrapperOnAfterRender()
 				{
 					$count++;
 
-					if (strpos($script, 'media/akeeba_strapper/js/bootstrap.min.js') !== false)
+					if (strpos($script, 'media/strapper30/js/bootstrap.min.js') !== false)
 					{
 						$scriptsToRemove[] = $script;
 					}
@@ -606,18 +606,18 @@ function AkeebaStrapperOnAfterRender()
 }
 
 // Add our pseudo-plugins to the application event queue
-if (!AkeebaStrapper::isCli())
+if (!AkeebaStrapper30::isCli())
 {
 	$app = JFactory::getApplication();
 
-	if (AkeebaStrapper::needPreload())
+	if (AkeebaStrapper30::needPreload())
 	{
-		$app->registerEvent('onAfterRender', 'AkeebaStrapperLoader');
+		$app->registerEvent('onAfterRender', 'AkeebaStrapper30Loader');
 	}
 	else
 	{
-		$app->registerEvent('onBeforeRender', 'AkeebaStrapperLoader');
+		$app->registerEvent('onBeforeRender', 'AkeebaStrapper30Loader');
 	}
 
-	$app->registerEvent('onAfterRender', 'AkeebaStrapperOnAfterRender');
+	$app->registerEvent('onAfterRender', 'AkeebaStrapper30OnAfterRender');
 }

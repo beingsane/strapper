@@ -9,6 +9,7 @@
 /release.json
 /release/*.zip
 
-/strapper/files_strapper.xml
+/strapper/file_strapper*.xml
+/strapper/version.php
 /strapper/version.txt
-/strapper/akeeba_strapper/version.php
+/strapper/strapper*/version.php
