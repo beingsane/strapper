@@ -7,7 +7,7 @@
 
 defined('_JEXEC') or die();
 
-class file_strapperInstallerScript
+class file_strapper30InstallerScript
 {
 	/**
 	 * The minimum PHP version required to install this extension
@@ -184,6 +184,9 @@ class file_strapperInstallerScript
 
 		// Remove self from FOF 3.0 dependencies
 		$this->removeDependency('fof30', 'files_strapper30');
+
+		JLoader::import('joomla.filesystem.folder');
+		JFolder::delete(JPATH_SITE . '/media/strapper30');
 	}
 
 
@@ -246,7 +249,7 @@ class file_strapperInstallerScript
 			'date'    => new JDate(trim($info[1]))
 		);
 
-		$haveToInstallStrapper = $strapperVersion['package']['date']->toUNIX() > $strapperVersion['installed']['date']->toUNIX();
+		$haveToInstallStrapper = $strapperVersion['package']['date']->toUNIX() >= $strapperVersion['installed']['date']->toUNIX();
 
 		return $haveToInstallStrapper;
 	}
