@@ -8,12 +8,14 @@ A handy distributions of namespaced jQuery and Bootstrap 2.3.4 for Joomla!
 
 In order to build the installation package of this library you need to have
 the following tools:
+
 * A command line environment. bash under Linux / Mac OS X works best. On Windows you will need to run most tools using an elevated privileges (administrator) command prompt.
 * The PHP CLI binary in your path
 * Command line Subversion and Git binaries(*)
 * PEAR and Phing installed, with the Net_FTP and VersionControl_SVN PEAR packages installed
 
 You will also need the following path structure on your system:
+
 * `strapper` This repository, a.k.a. MAIN directory
 * `buildfiles` [Akeeba Build Tools](https://github.com/akeeba/buildfiles)
 

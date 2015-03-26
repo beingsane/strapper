@@ -202,9 +202,9 @@ class files_strapperInstallerScript
 
 		$source = $grandpa->getPath('source');
 
-		$target = JPATH_ROOT . '/media/akeeba_strapper';
+		$target = JPATH_ROOT . '/media/strapper3';
 
-		if (!JFolder::exists($source . '/akeeba_strapper'))
+		if (!JFolder::exists($source . '/strapper3'))
 		{
 			// WTF? I can't find myself. I can't install anything.
 			return false;

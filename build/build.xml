@@ -68,7 +68,7 @@
 		<copy todir="${dirs.root}/strapper" overwrite="true">
 			<fileset dir="./templates">
 				<include name="files_strapper.xml" />
-				<include name="akeeba_strapper/version.php" />
+				<include name="strapper3/version.php" />
 			</fileset>
 			<filterchain>
 				<replacetokens begintoken="##" endtoken="##">

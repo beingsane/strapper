@@ -13,7 +13,7 @@
 
     <!-- Fileset definition -->
     <fileset>
-        <files folder="akeeba_strapper" target="media/akeeba_strapper">
+        <files folder="strapper3" target="media/strapper3">
             <folder>css</folder>
             <folder>img</folder>
             <folder>js</folder>
@@ -22,7 +22,7 @@
             <filename>strapper.php</filename>
             <filename>version.php</filename>
         </files>
-		<files target="media/akeeba_strapper">
+		<files target="media/strapper3">
 			<filename>version.txt</filename>
 		</files>
     </fileset>
