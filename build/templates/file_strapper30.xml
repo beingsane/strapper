@@ -29,4 +29,9 @@
 
     <!-- Installation / uninstallation script file -->
     <scriptfile>script.strapper.php</scriptfile>
+
+    <!-- Update server -->
+    <updateservers>
+        <server type="extension" priority="1" name="Akeeba Strapper">http://cdn.akeebabackup.com/updates/strapper.xml</server>
+    </updateservers>
 </extension>
