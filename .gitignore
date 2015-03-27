@@ -4,6 +4,7 @@
 /build/bin
 /build/buildlang
 /build/phingext
+/build/templates/release.json
 /build/tools
 
 /release.json
