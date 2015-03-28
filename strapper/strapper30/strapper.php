@@ -587,7 +587,7 @@ function AkeebaStrapper30OnAfterRender()
 				{
 					$count++;
 
-					if (strpos($script, 'media/strapper30/js/bootstrap.min.js') !== false)
+					if (strpos($script, 'media/strapper30/js/bootstrap.min.js') === false)
 					{
 						$scriptsToRemove[] = $script;
 					}
