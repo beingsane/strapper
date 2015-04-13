@@ -11,6 +11,6 @@
 /release/*.zip
 
 /strapper/file_strapper*.xml
-/strapper/version.php
+/strapper/strapper30/version.php
 /strapper/version.txt
 /strapper/strapper*/version.php

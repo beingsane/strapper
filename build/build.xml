@@ -67,7 +67,18 @@
 		<!-- Generate files_strapper.xml and version.php -->
 		<copy todir="${dirs.root}/strapper" overwrite="true">
 			<fileset dir="./templates">
-				<include name="file_strapper30.xml" />
+
+			</fileset>
+			<filterchain>
+				<replacetokens begintoken="##" endtoken="##">
+					<token key="DATE" value="${git.date}" />
+					<token key="VERSION" value="${version}" />
+				</replacetokens>
+			</filterchain>
+		</copy>
+		<copy todir="${dirs.root}/strapper/strapper30" overwrite="true">
+			<fileset dir="./templates">
+                <include name="file_strapper30.xml" />
 				<include name="version.php" />
 			</fileset>
 			<filterchain>
