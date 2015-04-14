@@ -100,7 +100,7 @@
 		</copy>
 
 		<!-- Create the package -->
-		<zipme basedir="${dirs.strapper}" prefix="strapper/" destfile="${dirs.release}/file_strapper30-${version}.zip" includeemptydirs="true">
+		<zipme basedir="${dirs.strapper}" destfile="${dirs.release}/file_strapper30-${version}.zip" includeemptydirs="true">
 			<fileset dir="${dirs.strapper}" id="strapper">
 				<include name="**" />
 			</fileset>
