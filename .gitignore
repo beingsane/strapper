@@ -7,13 +7,13 @@
 /build/templates/release.json
 /build/tools
 
+/strapper/release.json
 /release.json
 /release/*.zip
 
 /strapper/file_strapper*.xml
-/strapper/strapper*/version.php
-/strapper/version.txt
+/strapper/link.php
 /strapper/strapper*/version.php
 /strapper/strapper*/file_strapper*.xml
-/strapper/link.php
+/strapper/version.txt
 /strapper/version.php
