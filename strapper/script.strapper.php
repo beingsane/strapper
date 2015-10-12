@@ -152,6 +152,7 @@ class file_strapper30InstallerScript
 
 		$dbInstaller = new FOF30\Database\Installer($db, $sqlSource);
 		$dbInstaller->updateSchema();
+        $dbInstaller->nukeCache();
 
 		// Add self to FOF 3.0 dependency list
 		$this->addDependency('fof30', 'files_strapper30');
