@@ -1,10 +1,8 @@
 /.idea
 
-/build/build.properties
 /build/bin
 /build/buildlang
 /build/phingext
-/build/templates/release.json
 /build/tools
 
 /strapper/release.json
