@@ -1,7 +1,7 @@
 <?php
 /**
  *  @package     AkeebaStrapper
- *  @copyright   Copyright (c) 2010-2016 Nicholas K. Dionysopoulos / Akeeba Ltd. All rights reserved.
+ *  @copyright   Copyright (c) 2010-2017 Nicholas K. Dionysopoulos / Akeeba Ltd. All rights reserved.
  *  @license     GNU General Public License version 2, or later
  */
 
